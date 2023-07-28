@@ -1,0 +1,380 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&family=Raleway:wght@400;700;800&display=swap');
+/* Alterando o Box Model CSS para evitar dificuldades com dimensões
+(largura, altura, bordas e espaçamentos) */
+* { box-sizing: border-box;}
+
+/* Definindo um tamanho padrão/referência para uso com medida REM. */
+html {font-size: 14px;}
+
+/* Reset de espaçamento de alguns elementos */
+body, h1, h3, h2, figure, p, .menu {
+    margin: 0;
+    padding: 0;
+
+}
+
+main { flex: 1;}
+
+/* Tornando todas as imagens flexíveis */
+img {max-width: 100%;}
+
+body {
+    font-family: 'Noto Sans', Verdana, Arial, sans-serif;
+
+     /* Importante declarar mesmo que seja branco,
+     já que o padrão é transparente (pode causar
+     inconsistências quando exibido em aparelhos
+     com modo noturno ativado). */
+  background-color: white;
+
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+a { text-decoration: none;}
+
+h1 a{
+    background-color: black;
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+
+    text-decoration: none;
+    color: white;
+}
+
+h1 {
+    font-family: Raleway, sans-serif;
+    font-weight: 800; 
+    font-size:  1.5rem; 
+}
+
+header {
+    background-color: white;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+
+}
+
+header .limitador {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 10vh;
+}
+
+nav h2 a {
+    color: black;
+    font-size: 1,2rem;
+    padding: 1rem;
+    display: inline-block;
+
+
+
+}
+
+/* Versão 1: mais epecífica,
+   seletor por seletor */
+
+/* nav h2 a:hover,
+   .menu a:hover */
+
+/* Versão 2:Valendo para qualquer
+tipo de link dentro de nav */
+
+nav a:hover {
+    background-color: gray;       
+} 
+
+.menu {
+    display: none; 
+    list-style: none;}
+
+.menu a { 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-weight: bold;
+    color: black;
+    height: 50px;
+}
+
+/* ATENÇÃO
+A regra abaixo somente irá funcionar com o auxílio de programação JavaScript.
+
+Objetivo: quando duas classes estiverem combinadas, o menu será exibido completamente.*/
+
+.menu.aberto {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    position: absolute;
+    left: 0;
+    right: 0;
+}
+
+.destaque {
+    background-image: url(../imagens/fundo-destaque.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    
+
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+}
+
+.destaque h2, .destaque p {
+    color: #fff;
+    text-align: center;
+
+    
+}
+
+.destaque h2 {
+    font-size: clamp(3rem, 10vw, 7rem);
+    font-weight: 800 ;
+
+    animation-name: animaDestaque;
+    animation-duration: 2s;
+}
+
+.destaque p {
+    font-size: clamp(1rem, 3vw, 3rem);
+    font-weight: bold;
+
+    animation-name: animaDestaque;
+    animation-duration: 2s;
+    animation-delay: 1s;
+    animation-fill-mode: backwards;
+    animation-timing-function: ease-indsd;
+}
+
+@keyframes animaDestaque {
+    from {  opacity: 0;
+            transform: translateY(-400px); }
+    to { opacity: 1;}
+}
+
+article h2 {
+    padding: 1rem;
+    font-family: Raleway, sans-serif;
+    color: #6b6b6b;
+    font-size: 1.8rem;
+}
+
+article p, article address {
+    padding: 0.5rem 0;
+    font-size: 1.2rem;
+}
+
+/* Remover itálico do address */
+article address { font-style: normal;}
+
+.front-end, .historia, .localizacao, footer { text-align: center; }
+
+.front-end {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.historia {
+    background-image: url(../imagens/fundo-madeira.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+
+}
+
+.historia h2 {
+    color: white;
+    text-shadow: black 2px 2px 4px;
+}
+
+.historia iframe {
+    width: 100%;
+    max-width: 700px;
+    margin-bottom: 2rem;
+
+}
+
+.localizacao {
+    width: 100%;
+    
+    margin-top: 2rem;
+}
+
+.localizacao iframe {
+    width: 100%;
+}
+
+/* nova classe */
+.limitador {
+    width: 95vw;
+    margin: auto;
+
+
+}
+
+footer {
+    background-color: black;
+    color: white;
+    height: 20vh;
+    font-weight: bold;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.conteudo {
+    background-color: #e1e1e1;
+    padding: 0.5rem;
+    border-radius: 8px;
+}
+
+.conteudo h2 {
+    padding-left: 0;
+    text-align: center;
+}
+
+table, th, td {
+    border: solid 2px black;
+    border-collapse: collapse;    
+}
+
+table {
+    margin: auto;
+    width: 80%;
+    max-width: 600px;
+    
+}
+
+caption {
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    padding-bottom: 0.5rem;
+}
+
+th {
+    background-color: black;
+    color: white;
+    padding: 1rem;
+    font-size: 1.1rem;
+}
+
+td {
+    padding: 8px;
+    font-size: 1.1rem;
+}
+
+td:first-child { text-transform: uppercase;}
+
+td:nth-child(2) { text-align: center;}
+
+td:last-child {
+    font-weight: bold;
+    text-align: right;
+}
+
+tr:nth-child(even){ background-color: antiquewhite;}
+
+tr:nth-child(odd){ background-color: rgb(241, 241, 107);}
+
+.galeria-servicos img{
+    filter: grayscale(100%);
+    transition: 0.5;
+    cursor: pointer;
+    border-radius: 100%;
+    padding: 8px;
+    box-shadow: 0 0 20px ;
+    
+}
+
+.galeria-servicos img:hover {
+  filter: none;
+  transform: scale(1.1);
+}
+
+.galeria-servicos {
+     text-align: center;
+     
+}
+
+/* Regras de elementos para formulário */
+form{
+
+    width: 95%;
+    margin: auto;
+    padding: 1rem;
+    border-radius: 8px;
+
+}
+
+form div { margin-top: 1rem;}
+
+input:not([type=radio], [type=checkbox]), select, textarea {
+    border: none;
+    padding: 10px;
+    width: 100%;
+    box-shadow: darkgray 0 0 5px;
+    height: 40px;
+    font-size: 1.1rem;
+}
+
+textarea { 
+    height: auto;
+    resize: none;    
+
+    max-height: 400px;
+}
+
+label { font-size: 1.2rem;}
+
+button {
+    border: none;
+    padding: 1rem;
+    background-color: black;
+    color: white;
+    font-weight: bold;
+}
+
+button:hover, button:focus {
+    cursor: pointer;
+    background-color: gray;
+}
+
+/* Regras condicionais: media queries */
+
+/* Para telas a partir de 530px */
+@media screen and (min-width: 530px){
+
+    /* Esconder a palavra menu  */
+    nav h2 { display: none; }
+    /* Fazer aparecer e Deixar lado a lado os itens da lista/menu */
+    .menu {display: flex;}
+
+    nav {
+        width: 70%;
+    }
+
+    /* Ao devolver o tamanho de 100% para cafa <li> ,
+    na prática isso criará um espaçamento no texto/link. */
+
+    .menu li {
+        text-transform: uppercase;
+        width: 100%;
+    }
+}
+
+@media screen and (min-width:1000px) {
+    html { font-size: 16px; }
+    .limitador { max-width: 1000px; }
+}
