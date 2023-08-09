@@ -75,7 +75,7 @@ async function handleSubmit(event) {
     }
   }).then(response => {
     if (response.ok) {
-      status.innerHTML = "Seu formulário fo enviado com sucesso bro, valeuuu";
+      status.innerHTML = "Seu formulário foi enviado com sucesso bro, valeuuu";
       form.reset()
     } else {
       response.json().then(data => {
